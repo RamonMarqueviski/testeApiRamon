@@ -5,7 +5,13 @@ const Clube = require('../models/Clube');
 const Atleta = require('../models/Atleta');
 const Competicoes = require('../models/Competicao');
 
-const connection = new Sequelize(dbConfig);
+const connection = new Sequelize(process.env.DATABASE_URL, {
+  dialectOptions: {
+    ssl: {
+      rejectUnauthorized: false,
+    },
+  },
+});
 
 Clube.init(connection);
 Atleta.init(connection);

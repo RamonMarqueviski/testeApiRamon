@@ -5,6 +5,9 @@ const CompeticaoController = require('../controllers/CompeticaoController');
 
 const routes = express.Router();
 
+routes.get('/', (req,res) => {
+    res.send('Hello World').status(200);
+})
 //Rotas referentes a clubes
 routes.get('/clubes', ClubeController.index);
 routes.post('/clubes', ClubeController.store);
